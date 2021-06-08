@@ -23,3 +23,7 @@ You can then explore all the records included in the PAK file in `parsed.index.r
 
 > Note that (at this time), this does **not** support unpacking the actual file data of the PAK, only reading the records. This _may_ be included in a future update depending on requirements/demand.
 
+## Changelog
+
+- **0.0.1**: Initial release
+- 
