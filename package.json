@@ -1,0 +1,35 @@
+{
+  "name": "@agc93/pak-reader",
+  "version": "0.0.1",
+  "description": "A lightweight record reader for UE4 pak files.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p .",
+    "build:docs": "typedoc",
+    "dist": "npm run build && copyfiles -f package.json README.md LICENSE ./dist/"
+  },
+  "engines": {
+    "node": ">=12.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agc93/node-pak-reader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agc93/node-pak-reader/issues"
+  },
+  "homepage": "https://github.com/agc93/node-pak-reader#readme",
+  "author": "agc93",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.20.15",
+    "typedoc": "^0.20.36",
+    "typescript": "~4.2.4"
+  },
+  "dependencies": {
+    "binary-parser": "^1.8.0",
+    "read-chunk": "^3.2.0"
+  }
+}
