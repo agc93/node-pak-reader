@@ -7,8 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
-    "build:docs": "typedoc",
-    "dist": "npm run build && copyfiles -f package.json README.md LICENSE ./dist/"
+    "build:docs": "typedoc"
   },
   "engines": {
     "node": ">=12.9.0"
