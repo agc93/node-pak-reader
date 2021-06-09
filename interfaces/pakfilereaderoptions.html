@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IIndex | @agc93/pak-reader</title>
+	<title>PakFileReaderOptions | @agc93/pak-reader</title>
 	<meta name="description" content="Documentation for @agc93/pak-reader">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,21 +55,28 @@
 					<a href="../modules.html">@agc93/pak-reader</a>
 				</li>
 				<li>
-					<a href="iindex.html">IIndex</a>
+					<a href="pakfilereaderoptions.html">PakFileReaderOptions</a>
 				</li>
 			</ul>
-			<h1>Interface IIndex</h1>
+			<h1>Interface PakFileReaderOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Options object to control reader behaviour.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IIndex</span>
+						<span class="target">PakFileReaderOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -80,10 +87,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iindex.html#mountpoint" class="tsd-kind-icon">mount<wbr>Point</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iindex.html#mountpointsize" class="tsd-kind-icon">mount<wbr>Point<wbr>Size</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iindex.html#recordcount" class="tsd-kind-icon">record<wbr>Count</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iindex.html#records" class="tsd-kind-icon">records</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="pakfilereaderoptions.html#encoding" class="tsd-kind-icon">encoding</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="pakfilereaderoptions.html#safemode" class="tsd-kind-icon">safe<wbr>Mode</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,44 +97,35 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mountpoint" class="tsd-anchor"></a>
-					<h3>mount<wbr>Point</h3>
-					<div class="tsd-signature tsd-kind-icon">mount<wbr>Point<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="encoding" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> encoding</h3>
+					<div class="tsd-signature tsd-kind-icon">encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/types.ts#L14">types.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/fileReader.ts#L14">fileReader.ts:14</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Text encoding of strings in the file. Only change if absolutely necessary.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mountpointsize" class="tsd-anchor"></a>
-					<h3>mount<wbr>Point<wbr>Size</h3>
-					<div class="tsd-signature tsd-kind-icon">mount<wbr>Point<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="safemode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> safe<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">safe<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/types.ts#L15">types.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/fileReader.ts#L20">fileReader.ts:20</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="recordcount" class="tsd-anchor"></a>
-					<h3>record<wbr>Count</h3>
-					<div class="tsd-signature tsd-kind-icon">record<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/types.ts#L16">types.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="records" class="tsd-anchor"></a>
-					<h3>records</h3>
-					<div class="tsd-signature tsd-kind-icon">records<span class="tsd-signature-symbol">:</span> <a href="iindexrecord.html" class="tsd-signature-type" data-tsd-kind="Interface">IIndexRecord</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/types.ts#L17">types.ts:17</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Switches the reader to using a safer, but less performant, pre-compiled parser.</p>
+						</div>
+						<p>Use this in environments where <code>unsafe-eval</code> is blocked/unavailable.</p>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -152,27 +148,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="ifilefooter.html" class="tsd-kind-icon">IFile<wbr>Footer</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="iindex.html" class="tsd-kind-icon">IIndex</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iindex.html#mountpoint" class="tsd-kind-icon">mount<wbr>Point</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iindex.html#mountpointsize" class="tsd-kind-icon">mount<wbr>Point<wbr>Size</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iindex.html#recordcount" class="tsd-kind-icon">record<wbr>Count</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iindex.html#records" class="tsd-kind-icon">records</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="iindexrecord.html" class="tsd-kind-icon">IIndex<wbr>Record</a>
 					</li>
@@ -182,9 +160,21 @@
 					<li class=" tsd-kind-interface">
 						<a href="irecord.html" class="tsd-kind-icon">IRecord</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="pakfilereaderoptions.html" class="tsd-kind-icon">Pak<wbr>File<wbr>Reader<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="pakfilereaderoptions.html#encoding" class="tsd-kind-icon">encoding</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="pakfilereaderoptions.html#safemode" class="tsd-kind-icon">safe<wbr>Mode</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

@@ -93,7 +93,6 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="pakfilereader.html#getfooter" class="tsd-kind-icon">get<wbr>Footer</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="pakfilereader.html#parse" class="tsd-kind-icon">parse</a></li>
 							</ul>
 						</section>
@@ -106,13 +105,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Pak<wbr>File<wbr>Reader<span class="tsd-signature-symbol">(</span>filePath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, encoding<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pakfilereader.html" class="tsd-signature-type" data-tsd-kind="Class">PakFileReader</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Pak<wbr>File<wbr>Reader<span class="tsd-signature-symbol">(</span>filePath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/pakfilereaderoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">PakFileReaderOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pakfilereader.html" class="tsd-signature-type" data-tsd-kind="Class">PakFileReader</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/8142bd6/src/fileReader.ts#L11">fileReader.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/fileReader.ts#L30">fileReader.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -134,9 +133,9 @@
 									</div>
 								</li>
 								<li>
-									<h5>encoding: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;utf8&#x27;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> opts: <a href="../interfaces/pakfilereaderoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">PakFileReaderOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Text encoding of strings in the file. Only change if absolutely necessary.</p>
+										<p>Options for fine-tuning the reader and parser behaviour.</p>
 									</div>
 								</li>
 							</ul>
@@ -148,33 +147,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getfooter" class="tsd-anchor"></a>
-					<h3>get<wbr>Footer</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Footer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ifilefooter.html" class="tsd-signature-type" data-tsd-kind="Interface">IFileFooter</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/8142bd6/src/fileReader.ts#L70">fileReader.ts:70</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Reads and parses the file footer for the current PAK file.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>deprecated</dt>
-									<dd><p>May be removed in future versions. Use <code>parse()</code> instead.</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ifilefooter.html" class="tsd-signature-type" data-tsd-kind="Interface">IFileFooter</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="parse" class="tsd-anchor"></a>
 					<h3>parse</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -184,7 +156,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/8142bd6/src/fileReader.ts#L31">fileReader.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/agc93/node-pak-reader/blob/6227558/src/fileReader.ts#L53">fileReader.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -218,9 +190,6 @@
 								<a href="pakfilereader.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="pakfilereader.html#getfooter" class="tsd-kind-icon">get<wbr>Footer</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="pakfilereader.html#parse" class="tsd-kind-icon">parse</a>
 							</li>
 						</ul>
@@ -244,6 +213,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/irecord.html" class="tsd-kind-icon">IRecord</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/pakfilereaderoptions.html" class="tsd-kind-icon">Pak<wbr>File<wbr>Reader<wbr>Options</a>
 					</li>
 				</ul>
 			</nav>
