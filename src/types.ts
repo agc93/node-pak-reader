@@ -4,12 +4,15 @@ export interface IPakFile extends IFileFooter {
 
 export interface IFileFooter {
     archiveVersion: number;
+    magic: string;
     indexOffset: bigint;
     indexSize: bigint;
+    indexHash: string;
 }
 
 export interface IIndex {
     mountPoint: string;
+    mountPointSize: number;
     recordCount: number;
     records: IIndexRecord[];
 }
@@ -24,7 +27,10 @@ export interface IRecord {
     rawSize: number;
     compressionMethod: number;
     hash: string;
-    isEncrypted: boolean;
+    /**
+     * Encryption status of the file: `0` for unencrypted, `1` for encrypted
+     */
+    isEncrypted: number;
     compressionBlockSize: number;
     compression: ICompression;
 }

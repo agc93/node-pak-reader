@@ -123,7 +123,7 @@ export class ParserService {
             .uint32("archiveVersion", { assert: 3 })
             .uint64("indexOffset")
             .uint64("indexSize")
-            .string("hash", { encoding: "hex", length: 20 });
+            .string("indexHash", { encoding: "hex", length: 20 });
     }
 
     /**

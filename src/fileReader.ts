@@ -1,7 +1,24 @@
 import fs, {promises as pfs} from "fs";
 import readChunk from "read-chunk";
 import { ParserService } from "./parser";
+import { SafeParserService } from "./safeParser";
 import { IFileFooter, IIndex, IPakFile } from "./types";
+
+/**
+ * Options object to control reader behaviour.
+ */
+export interface PakFileReaderOptions {
+    /**
+     * Text encoding of strings in the file. Only change if absolutely necessary.
+     */
+    encoding?: string;
+    /**
+     * Switches the reader to using a safer, but less performant, pre-compiled parser.
+     * 
+     * Use this in environments where `unsafe-eval` is blocked/unavailable.
+     */
+    safeMode?: boolean;
+}
 
 /**
  * The main reader implementation, intended for reading the records from a single PAK file.
@@ -9,6 +26,8 @@ import { IFileFooter, IIndex, IPakFile } from "./types";
 export class PakFileReader {
     private _filePath: string;
     private _parser: ParserService;
+    private _safeMode: boolean;
+    private _safeParser: SafeParserService;
 
     /**
      * Creates a new instance of the `PakFileReader` for the PAK file at the given path.
@@ -16,11 +35,14 @@ export class PakFileReader {
      * @remarks Changing the encoding is not recommended unless you really know what you're doing.
      * 
      * @param filePath Path to the PAK file to read.
-     * @param encoding Text encoding of strings in the file. Only change if absolutely necessary.
+     * @param opts Options for fine-tuning the reader and parser behaviour.
      */
-    constructor(filePath: string, encoding: string = 'utf8') {
+    constructor(filePath: string, opts?: PakFileReaderOptions) {
         this._filePath = filePath;
+        var encoding = opts?.encoding ?? 'utf8';
         this._parser = new ParserService(encoding);
+        this._safeParser = new SafeParserService();
+        this._safeMode = opts?.safeMode ?? false;
     }
 
     /**
@@ -29,12 +51,12 @@ export class PakFileReader {
      * @returns An object for the records and metadata of the current PAK file.
      */
     parse = async(): Promise<IPakFile> => {
-        var ps = this._parser;
+        var fp = this._safeMode ? this._safeParser.footerParser : this._parser.footerParser.parse;
+        var ip = this._safeMode ? this._safeParser.indexParser : this._parser.indexParser.parse;
         var footerBytes = await this.getFooterBytes();
-        var fp = ps.footerParser;
-        var footer = fp.parse(footerBytes) as IFileFooter;
+        var footer = fp(footerBytes) as IFileFooter;
         var rawIndex = await readChunk(this._filePath, Number(footer.indexOffset), Number(footer.indexSize));
-        var index = ps.indexParser.parse(rawIndex);
+        var index = ip(rawIndex);
         return{
             ...footer,
             index
@@ -58,32 +80,6 @@ export class PakFileReader {
         var strLength = rawData.readUInt32LE(startOffset);
         var str = rawData.toString('utf8', startOffset + 4, startOffset + 4 + strLength);
         return {lenBytes: strLength + 4, value: str};
-    }
-
-
-
-    /**
-     * Reads and parses the file footer for the current PAK file.
-     * 
-     * @deprecated May be removed in future versions. Use `parse()` instead.
-     */
-    getFooter = async (): Promise<IFileFooter> => {
-        var footerBytes = await this.getFooterBytes();
-        var magic = footerBytes.readUInt32LE(0);
-        if (magic != 0x5A6F12E1) {
-            throw new Error("Incorrect magic found!");
-        }
-        var pakVersion = footerBytes.readUInt32LE(4);
-        if (pakVersion != 3) {
-            throw new Error("Unsupported PAK version!");
-        }
-        var indexOffset = footerBytes.readBigUInt64LE(8);
-        var indexSize = footerBytes.readBigUInt64LE(16);
-        return {
-            archiveVersion: pakVersion,
-            indexOffset: indexOffset,
-            indexSize: indexSize
-        };
     }
 }
 
