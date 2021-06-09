@@ -26,4 +26,7 @@ You can then explore all the records included in the PAK file in `parsed.index.r
 ## Changelog
 
 - **0.0.1**: Initial release
-- 
+- **0.0.2**
+  - Rework API to support new "safe mode" parser options.
+  - Add safe pre-compiled parser for CSP-restricted environments.
+  - Remove deprecated `getFooter` from `PakFileReader`.

@@ -1,6 +1,6 @@
 {
   "name": "@agc93/pak-reader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight record reader for UE4 pak files.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
