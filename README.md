@@ -30,3 +30,5 @@ You can then explore all the records included in the PAK file in `parsed.index.r
   - Rework API to support new "safe mode" parser options.
   - Add safe pre-compiled parser for CSP-restricted environments.
   - Remove deprecated `getFooter` from `PakFileReader`.
+- **0.0.3**
+  - Update to support the `bias memory` and `bias speed` compression methods
