@@ -74,6 +74,8 @@ export class SafeParserService {
                     case 0:
                         break;
                     case 1:
+                    case 2:
+                    case 4:
                         $tmp2.compression.blockCount = dataView.getUint32(offset, true);
                         offset += 4;
                         $tmp2.compression.blocks = [];

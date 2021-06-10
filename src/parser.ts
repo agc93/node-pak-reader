@@ -59,7 +59,9 @@ export class ParserService {
                 tag: "compressionMethod",
                 choices: {
                     0: this.stop,
-                    1: this.compressionParser
+                    1: this.compressionParser,
+                    2: this.compressionParser,
+                    4: this.compressionParser
                 }
             })
             .bit1("isEncrypted")
